@@ -15,17 +15,17 @@ return [
     |
     */
 
-    'paths' => ['api/*',  'game/*','sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'broadcasting/auth', 'game/*','sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*', 'http://localhost:5173'],
+    'allowed_origins' => ['http://ludo-frontend-bucket.s3-website-us-east-1.amazonaws.com', 'http://localhost:5173'],
 
     'allowed_origins_patterns' => [],
 
     'allowed_headers' => ['*'],
 
-    'exposed_headers' => [],
+    'exposed_headers' => ['*'],
 
     'max_age' => 0,
 

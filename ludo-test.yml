@@ -1,0 +1,29 @@
+config:
+  target: "http://44.208.30.137"
+  phases:
+    - duration: 60         # run test for 60 seconds
+      arrivalRate: 20      # 20 new users per second (adjust as needed)
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - flow:
+      - post:
+          url: "/api/game/create"
+          json:
+            max_players: 2
+      - think: 1
+      - post:
+          url: "/api/game/setup-players"
+          json:
+            game_id: 1  # use valid or fake ID for simulation
+            players:
+              - name: "Player A"
+              - name: "Player B"
+      - think: 1
+      - post:
+          url: "/api/game/turn"
+          json:
+            game_id: 1
+            remaining_turn_time: 5
